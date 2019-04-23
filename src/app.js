@@ -5,6 +5,9 @@ import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
 import * as filters from './util/filters'
+import ElementUI from 'element-ui';
+
+Vue.use(ElementUI);
 
 // mixin for handling title
 Vue.mixin(titleMixin)

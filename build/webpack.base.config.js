@@ -60,6 +60,36 @@ module.exports = {
             })
           : ['vue-style-loader', 'css-loader', 'stylus-loader']
       },
+      {
+        test: /\.less$/,
+        use: isProd
+          ? ExtractTextPlugin.extract({
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: { minimize: true }
+                },
+                'less-loader'
+              ],
+              fallback: 'vue-style-loader'
+            })
+          : ['vue-style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.(scss)|(sass)$/,
+        use: isProd
+          ? ExtractTextPlugin.extract({
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: { minimize: true }
+                },
+                'sass-loader'
+              ],
+              fallback: 'vue-style-loader'
+            })
+          : ['vue-style-loader', 'css-loader', 'stylus-loader']
+      },
     ]
   },
   performance: {
