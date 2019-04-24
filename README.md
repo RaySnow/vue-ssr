@@ -66,6 +66,12 @@ npm run build
 npm start
 ```
 
+## other
+is client or derver
+process.env.VUE_ENV === 'client'
+process.env.VUE_ENV === 'server'
+
+
 ## License
 
 MIT
