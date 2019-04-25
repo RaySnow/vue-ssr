@@ -1,34 +1,31 @@
 'use strict';
 
-import * as Type from './type';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import request from '../framework/network/request';
-// import { Message } from 'element-ui';
-import router from '../router'
+import { Message } from 'element-ui';
+import getBanners from '../api/getBanners'
 
 Vue.use(Vuex);
 
-const Message = function () {
-    console.log("message")
-};
-
 const actions = {
     //bannerlist
-    [Type.GET_BANNER_LIST]: ({commit}, param) => {
-        return request.get('/api/banners', {params: param}).then((data) => {
-            console.log("data ")
-            if (+data.code === 1) {
-                commit(Type.GET_BANNER_LIST, {bannerList: data.data})
-            } else {
-                Message({
-                    message: data.message,
-                    type: 'error'
-                });
+    [GET_BANNER_LIST]: ({commit}, params) => {
+        return getBanners(params).then((res) => {
+            if(res.data) {
+                console.log("data: ", res.data)
+                commit(Type.GET_BANNER_LIST, {bannerList: res.data})
             }
-        }).catch(e => {
-            console.log(e.message);
-        });
+            if(res.error) {
+                if(process.env.VUE_ENV === 'client') {
+                    Message({
+                        message: data.message,
+                        type: 'error'
+                    });
+                } else {
+                    console.log(`Request Error: /api/banners: ${data.message}`)
+                }
+            }
+        })
     }
 };
 
