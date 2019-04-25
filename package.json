@@ -1,5 +1,5 @@
 {
-  "name": "webpack-vue2-ssr",
+  "name": "vue2-ssr-boilerplate",
   "description": "A Vue.js ssr project",
   "author": "hupo <zifeiji@gmail.com>",
   "private": true,

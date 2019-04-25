@@ -2,7 +2,11 @@
 
 
 ## document:
-[https://ssr.vuejs.org/zh/](https://ssr.vuejs.org/zh/)
+[Vue SSR Guide](https://ssr.vuejs.org/zh/)
+
+## Description:
+for mobile(vw) & PC
+base on vue2 vuex webpack3
 
 ## Usage:
 
@@ -25,45 +29,51 @@ npm start
 
 ```javascript
 export default {
-  // 更改title
-  title () {
-  	return 'demo1'
-  },
-  // 异步获取数据
-  asyncData ({ store, route }) {
-    // 触发 action 后，例：请求电影、传入id
-    return store.dispatch('fetchMovie', 54321)
-  },
+	// 直出数据预取
+    asyncData({store}) {
+        let param = {
+            province: '',
+            city: '',
+        };
+        return store.dispatch('GET_BANNER_LIST', param);
+    },
+	// 更改title
+    title() {
+        return "首页"
+    },
 }
 
 
 // store/index.js
-return new Vuex.Store({
-  state: {
-    movie: {}
-  },
-  actions: {
-    fetchMovie ({ commit }, id) {
-      return new Promise((resolve, reject) => {
-        // ajax去请求数据
-      }).then(res => {
-        commit('setMoive', { res })
-      })
-    }
-  },
-  mutations: {
-    setMoive (state, { res }) {
-      Vue.set(state, 'movie', res)
-    }
-  }
-})
+Vue.use(Vuex)
+
+export function createStore () {
+  return new Vuex.Store({
+    state: {
+      cityList:[],
+      province:'',
+      cityName:'',
+      bannerList:[],
+    },
+    actions,
+    mutations,
+    getters
+  })
+}
+
 ```
 
 
 ## Tips
-is client or derver
-process.env.VUE_ENV === 'client'
-process.env.VUE_ENV === 'server'
+
+- is client or server ?
+  - process.env.VUE_ENV === 'client'
+  - process.env.VUE_ENV === 'server'
+
+- use vw instead of rem for mobile
+  - write "rpx" instead of "px", "rpx" will be Translate to "vw" automatically by [postcss-rpx-to-viewport](https://github.com/RaySnow/postcss-rpx-to-viewport)
+  - use [vw-polyfill](https://github.com/RaySnow/vw-polyfill) for unsupported viewport units (vw) browsers
+  - for [details](https://github.com/RaySnow/vw-polyfill/blob/master/other.md)
 
 ## Features
 
