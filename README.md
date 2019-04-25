@@ -1,14 +1,70 @@
-# vue-hackernews-2.0
+# vue-ssr
 
-HackerNews clone built with Vue 2.0 + vue-router + vuex, with server-side rendering.
 
-<p align="center">
-  <a href="https://vue-hn.herokuapp.com" target="_blank">
-    <img src="https://cloud.githubusercontent.com/assets/499550/17546273/5aabc5fc-5eaf-11e6-8d6a-ad00937e8bd6.png" width="700px">
-    <br>
-    Live Demo
-  </a>
-</p>
+## document:
+[document：https://ssr.vuejs.org/zh/)
+
+## Usage:
+
+**Requires Node.js 7+**
+
+``` bash
+# install dependencies
+npm install # or yarn
+
+# serve in dev mode, with hot reload at localhost:8080
+npm run dev
+
+# build for production
+npm run build
+
+# serve in production mode
+npm start
+```
+
+
+```javascript
+// movie.vue
+export default {
+  // 更改title
+  title () {
+  	return 'demo1'
+  },
+  // 异步获取数据
+  asyncData ({ store, route }) {
+    // 触发 action 后，例：请求电影、传入id
+    return store.dispatch('fetchMovie', 54321)
+  },
+}
+
+
+// store/index.js
+return new Vuex.Store({
+  state: {
+    movie: {}
+  },
+  actions: {
+    fetchMovie ({ commit }, id) {
+      return new Promise((resolve, reject) => {
+        // ajax去请求数据
+      }).then(res => {
+        commit('setMoive', { res })
+      })
+    }
+  },
+  mutations: {
+    setMoive (state, { res }) {
+      Vue.set(state, 'movie', res)
+    }
+  }
+})
+```
+
+
+## notice
+is client or derver
+process.env.VUE_ENV === 'client'
+process.env.VUE_ENV === 'server'
 
 ## Features
 
@@ -47,30 +103,6 @@ It is therefore not recommended to use this app as a reference for Vue SSR perfo
 <img width="973" alt="screen shot 2016-08-11 at 6 06 57 pm" src="https://cloud.githubusercontent.com/assets/499550/17607895/786a415a-5fee-11e6-9c11-45a2cfdf085c.png">
 
 **A detailed Vue SSR guide can be found [here](https://ssr.vuejs.org).**
-
-## Build Setup
-
-**Requires Node.js 7+**
-
-``` bash
-# install dependencies
-npm install # or yarn
-
-# serve in dev mode, with hot reload at localhost:8080
-npm run dev
-
-# build for production
-npm run build
-
-# serve in production mode
-npm start
-```
-
-## other
-is client or derver
-process.env.VUE_ENV === 'client'
-process.env.VUE_ENV === 'server'
-
 
 ## License
 

@@ -43,9 +43,9 @@
         width: 100%;
 
         .banner {
-            width: 100%;
+            width: 700rpx;
             img {
-                width: 100%;
+                width: 600rpx;
             }
         }
     }

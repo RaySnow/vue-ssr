@@ -1,7 +1,7 @@
 {
-  "name": "vue-hackernews-2.0",
-  "description": "A Vue.js project",
-  "author": "Evan You <yyx990803@gmail.com>",
+  "name": "webpack-vue2-ssr",
+  "description": "A Vue.js ssr project",
+  "author": "hupo <zifeiji@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node server",
@@ -35,7 +35,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^7.2.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -49,6 +49,9 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "node-sass": "^4.11.0",
+    "postcss": "^7.0.14",
+    "postcss-loader": "^3.0.0",
+    "postcss-rpx-to-viewport": "0.0.1",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
