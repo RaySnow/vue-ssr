@@ -60,7 +60,7 @@ return new Vuex.Store({
 ```
 
 
-## notice
+## Tips
 is client or derver
 process.env.VUE_ENV === 'client'
 process.env.VUE_ENV === 'server'
