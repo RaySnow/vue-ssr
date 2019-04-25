@@ -1,5 +1,6 @@
 'use strict';
 
+import * as Type from './type';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { Message } from 'element-ui';
@@ -9,10 +10,9 @@ Vue.use(Vuex);
 
 const actions = {
     //bannerlist
-    [GET_BANNER_LIST]: ({commit}, params) => {
+    [Type.GET_BANNER_LIST]: ({commit}, params) => {
         return getBanners(params).then((res) => {
             if(res.data) {
-                console.log("data: ", res.data)
                 commit(Type.GET_BANNER_LIST, {bannerList: res.data})
             }
             if(res.error) {
