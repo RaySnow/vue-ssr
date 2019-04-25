@@ -5,9 +5,9 @@
 [Vue SSR Guide](https://ssr.vuejs.org/zh/)
 
 ## Description:
-Vue Server-Side Render for mobile(vw 多屏自适应布局) & PC
-base on vue2 vuex axios vue-router webpack3
-support sass less stylus postcss
+- Vue Server-Side Render for mobile(vw 多屏自适应布局) & PC
+- base on vue2 vuex axios vue-router webpack3
+- support sass less stylus postcss
 
 ## Usage:
 
