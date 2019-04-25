@@ -2,7 +2,7 @@
 
 
 ## document:
-[document：https://ssr.vuejs.org/zh/)
+[https://ssr.vuejs.org/zh/](https://ssr.vuejs.org/zh/)
 
 ## Usage:
 
@@ -24,7 +24,6 @@ npm start
 
 
 ```javascript
-// movie.vue
 export default {
   // 更改title
   title () {
