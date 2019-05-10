@@ -2,17 +2,14 @@ import Vue from 'vue'
 import 'es6-promise/auto'
 import {createApp} from './app'
 import ProgressBar from './components/ProgressBar.vue'
-import { Toast, Picker, Swipe, SwipeItem } from 'mint-ui';
-import 'mint-ui/lib/style.css'
+// import { Toast, Picker } from 'mint-ui';
 
 // global progress bar
 const bar = Vue.prototype.$bar = new Vue(ProgressBar).$mount()
 document.body.appendChild(bar.$el)
 
-Vue.component(Toast.name, Toast);
-Vue.component(Picker.name, Picker);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Toast.name, Toast);
+// Vue.component(Picker.name, Picker);
 
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({

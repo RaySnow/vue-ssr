@@ -1,11 +1,11 @@
 <template>
     <div class="wrapper">
+        <mt-swipe class="banner" :auto="4000">
+            <mt-swipe-item v-for="banner in bannerList">
+                <img :src="banner.thumb" alt="">
+            </mt-swipe-item>
+        </mt-swipe>
         <div v-if="isClient">
-            <mt-swipe class="banner" :auto="4000">
-                <mt-swipe-item v-for="banner in bannerList">
-                    <img :src="banner.thumb" alt="">
-                </mt-swipe-item>
-            </mt-swipe>
             <mt-picker :slots="slots" @change="onValuesChange"></mt-picker>
         </div>
         <div v-else>
@@ -15,7 +15,6 @@
 
 <script>
 
-    // import Carousel from "../components/indexComponent/carouselCom.vue";
     import {mapState} from 'vuex'
 
     export default {

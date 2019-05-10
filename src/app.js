@@ -6,6 +6,13 @@ import {sync} from 'vuex-router-sync'
 import titleMixin from './util/title'
 import * as filters from './util/filters'
 import ElementUI from 'element-ui';
+import 'mint-ui/lib/style.css'
+
+import { Swipe, SwipeItem, Toast, Picker} from 'mint-ui';
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Toast.name, Toast);
+Vue.component(Picker.name, Picker);
 
 Vue.use(ElementUI);
 
