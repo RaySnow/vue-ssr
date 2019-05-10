@@ -16,7 +16,7 @@
 <script>
 
     import {mapState} from 'vuex'
-
+    import { Toast, MessageBox } from 'mint-ui';
     export default {
         name: 'user-view',
         data() {
@@ -73,11 +73,16 @@
         }),
 
         mounted() {
-            // Toast({
-            //     message: 'Upload Complete',
-            //     position: 'bottom',
-            //     duration: 5000
-            // });
+            Toast({
+                message: 'Upload Complete',
+                position: 'bottom',
+                duration: 5000
+            });
+            MessageBox({
+                title: 'Notice',
+                message: 'Are you sure?',
+                showCancelButton: true
+            });
         }
     }
 </script>
