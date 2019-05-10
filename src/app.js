@@ -5,16 +5,15 @@ import {createRouter} from './router'
 import {sync} from 'vuex-router-sync'
 import titleMixin from './util/title'
 import * as filters from './util/filters'
-import ElementUI from 'element-ui';
+// import ElementUI from 'element-ui';
 import 'mint-ui/lib/style.css'
 
-import { Swipe, SwipeItem, Toast, Picker} from 'mint-ui';
+import { Swipe, SwipeItem, Picker} from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Toast.name, Toast);
 Vue.component(Picker.name, Picker);
 
-Vue.use(ElementUI);
+// Vue.use(ElementUI);
 
 // mixin for handling title
 Vue.mixin(titleMixin)
