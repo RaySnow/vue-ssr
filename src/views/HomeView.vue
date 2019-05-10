@@ -88,13 +88,13 @@
         width: 100%;
 
         .banner {
-            width: 700rpx;
-        }
-        .mint-swipe-items-wrap {
-            height: 360rpx;
             width: 750rpx;
-            img {
+            .mint-swipe-items-wrap {
                 width: 750rpx;
+                height: 300rpx;
+                img {
+                    width: 750rpx;
+                }
             }
         }
     }
