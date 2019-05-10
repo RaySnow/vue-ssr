@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div v-if="isClient">
-            <mt-swipe class="banner" :auto="4000">
+            <mt-swipe :auto="4000">
                 <mt-swipe-item >
                     <img :src="bannerList[0].thumb" alt="">
                 </mt-swipe-item>
@@ -83,14 +83,18 @@
     }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
     .wrapper {
         width: 100%;
 
         .banner {
             width: 700rpx;
+        }
+        .mint-swipe-items-wrap {
+            height: 360rpx;
+            width: 750rpx;
             img {
-                width: 600rpx;
+                width: 750rpx;
             }
         }
     }
