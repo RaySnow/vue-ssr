@@ -46,9 +46,11 @@
                 province: '',
                 city: '',
             };
-            return Promise.all([
-                store.dispatch('GET_BANNER_LIST', param),
-            ]);
+            return store.dispatch('GET_BANNER_LIST', param),
+            // 多项数据预取
+            // return Promise.all([
+            //     store.dispatch('GET_BANNER_LIST', param),
+            // ]);
         },
 
         title() {
