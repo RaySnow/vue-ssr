@@ -46,7 +46,9 @@
                 province: '',
                 city: '',
             };
-            return store.dispatch('GET_BANNER_LIST', param);
+            return Promise.all([
+                store.dispatch('GET_BANNER_LIST', param),
+            ]);
         },
 
         title() {
